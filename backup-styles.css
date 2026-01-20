@@ -1,0 +1,290 @@
+.general-flex-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    display: grid;
+    max-width: 100%;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: auto;
+    /*grid-template-areas: 
+    "schedule-content social-media social-media schedule-social-media"
+    "schedule-content social-media social-media schedule-social-media"
+    "ai multiple-accounts posting-schedule schedule-social-media"
+    "ai audience followers followers";*/
+    
+}
+
+.bold {
+    font-weight: 500;
+    font-size: clamp(2rem, 4vw, 4rem);
+    padding: 1rem;
+    line-height: 3.5rem;
+}
+
+.window {
+    display: flex;
+    border: 2px solid black;
+    overflow: hidden;
+    border-radius: 1.5rem;
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+h2 {
+    font-size: clamp(3rem, 2vw, 3.5rem);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    line-height: 2.5rem;
+}
+
+h2 .ten-x {
+    color: var(--yellow-500);
+    font-size: clamp(3rem, 2vw, 3.5rem);
+}
+
+.first-cell p {
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.first-cell {
+    grid-area: social-media;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.first-cell img {
+    width: clamp(180px, 10vw, 220px);
+    margin: 0 auto 0.5rem auto;
+}
+
+.second-cell {
+    grid-area: multiple-accounts;
+    flex-direction: column;
+    background-image: url(./assets/images/illustration-multiple-platforms.webp);
+    background-repeat: no-repeat;
+    background-position: top left;
+    justify-content: flex-end;
+    padding-top: 6rem;
+}
+
+/*.second-cell img {
+    max-width: none;
+    width: clamp(250px, 40vw, 450px);
+    height: auto;
+    margin-top: 1rem;
+    padding-left: clamp(0.5rem, 2vw, 1rem);
+}*/
+
+.third-cell {
+    grid-area: posting-schedule;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(./assets/images/illustration-consistent-schedule.webp);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+}
+
+/*.third-cell img {
+    max-width: none;
+    width: clamp(315px, 15vw, 400px);
+    margin-top: 1rem;
+    
+}*/
+
+.fourth-cell {
+    grid-area: schedule-social-media;
+    flex-direction: column;
+}
+
+.fifth-cell {
+    grid-area: followers;
+    align-items: center;
+}
+
+.sixth-cell {
+    grid-area: audience;
+    flex-direction: column;
+}
+
+.seventh-cell {
+    grid-area: schedule-content;
+    flex-direction: column;
+}
+
+.eighth-cell {
+    grid-area: ai;
+    flex-direction: column;
+}
+
+.eighth-cell img {
+    max-width: 80%;
+    margin-top: 1rem;
+}
+
+@media (max-width: 575px) {
+    .grid-container {
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    }
+
+    .grid-container > * {
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+    }
+    
+    .first-cell h2 {
+        font-size: clamp(2.2rem, 5vw, 5rem);
+    }
+
+    .bold {
+    font-weight: 500;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    padding: 1rem;
+    line-height: 1.2rem;
+}
+
+    .third-cell {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
+
+/*
+
+Previous styles for individual grid cells (commented out for reference)
+
+.first-cell {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+    background-color: var(--purple-500);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 10rem 1rem;
+    border-radius: 20px;
+}
+
+.second-cell {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background-color: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    color: black;
+    border-radius: 20px;
+
+}
+
+.second-cell img {
+    max-width: none;
+    width: clamp(300px, 25vw, 600px);
+    height: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: clamp(2rem, 5vw, 6rem);
+}
+
+
+.third-cell {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    background-color: var(--yellow-100);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--yellow-500);
+
+    border-radius: 20px;
+}
+
+.fourth-cell {
+    grid-column: 4 / 5;
+    grid-row: 1 / 4;
+    background-color: var(--yellow-500);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+
+    border-radius: 20px;
+}
+
+.fifth-cell {
+    grid-column: 3 / 5;
+    grid-row: 4 / 5;
+    background-color: var(--purple-500);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+
+    border-radius: 20px;
+}
+
+.sixth-cell {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    background-color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+
+    border-radius: 20px;
+}
+
+.seventh-cell {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    background-color: var(--yellow-100);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 20px;
+}
+
+.eighth-cell {
+    grid-column: 1 / 2;
+    grid-row: 3 / 5;
+    background-color: var(--purple-100);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 20px;
+} */
